@@ -1,18 +1,11 @@
 import { useSelector } from 'react-redux';
 import withPageWrapper from '../hoc/withWrapper';
-import {DefaultLayout, AlternateLayout} from '../layouts';
+import { DefaultLayout } from '../layouts';
 
-const useLayout = (Component) => {
-    const selectedLayout = useSelector((state) => state.layout.selectedLayout);
+const useLayout = (Component, Layout) => {
+    Layout = Layout || DefaultLayout;
   
-    const layoutMap = {
-      default: DefaultLayout,
-      alternate: AlternateLayout,
-    };
-  
-    const SelectedLayout = layoutMap[selectedLayout] || DefaultLayout;
-  
-    const ComponentWithSelectedLayout = withPageWrapper(SelectedLayout)(Component);
+    const ComponentWithSelectedLayout = withPageWrapper(Layout)(Component);
   
     return <ComponentWithSelectedLayout/>;
 };
