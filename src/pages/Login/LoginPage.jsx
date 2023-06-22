@@ -1,8 +1,9 @@
 import React from "react";
-import DefaultLayout from "../../layouts/DefaultLayout"
+import {Link} from "react-router-dom";
+
 
 const LoginPage = () => {
-    return (<div> login </div>)
+    return (<Link to={"/home"}> login </Link>)
 }
 
 export default LoginPage;
